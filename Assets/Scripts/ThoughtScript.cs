@@ -10,7 +10,7 @@ public class ThoughtScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        choosed_recipe = FoodManagerClass.Instance.GetRecipe();
+       
     }
 
     // Update is called once per frame
