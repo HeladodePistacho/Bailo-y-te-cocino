@@ -9,15 +9,21 @@ public class BounceAnimation : MonoBehaviour
     public AnimationCurve horizontal;
 
     private float normalizedStep = 1;
+    private IEnumerator myCoroutine;
 
+    private void Start()
+    {
+        myCoroutine = StartSquash();
+    
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            StopCoroutine(StartSquash());
+            StopCoroutine(myCoroutine);
             Debug.Log("Input A");
             normalizedStep = 1;
-            StartCoroutine(StartSquash());
+            StartCoroutine(myCoroutine);
         }
     }
 
@@ -28,7 +34,7 @@ public class BounceAnimation : MonoBehaviour
 
     IEnumerator StartSquash()
     {
-        while(normalizedStep >= 0.01)
+        while(normalizedStep >= 0)
         {
             Debug.Log("Corutina");
             normalizedStep = Mathf.Lerp(normalizedStep, 0, Time.fixedDeltaTime * velocity);
