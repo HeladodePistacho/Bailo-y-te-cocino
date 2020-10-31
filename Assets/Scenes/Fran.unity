@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e103184bfdb6845b93ac013f6019b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0.8
+  velocity: 1.2
   vertical:
     serializedVersion: 2
     m_Curve:
@@ -164,13 +164,13 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.5
-      value: 0.5
-      inSlope: 2.5903788
-      outSlope: 2.5903788
+      time: 0.49816895
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.1739555
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
@@ -198,12 +198,12 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 0.5
-      value: 3
-      inSlope: 2.5903788
-      outSlope: 2.5903788
+      value: 1.4
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.1739555
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
@@ -255,7 +255,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 53369401d5f3faa44a376f5f338b5e57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -387,8 +387,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764094763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2547483, y: 1.2376069, z: -2.987877}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 3.2547483, y: -1.78, z: -2.987877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 316111946}
   m_Father: {fileID: 0}

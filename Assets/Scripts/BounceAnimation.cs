@@ -10,24 +10,30 @@ public class BounceAnimation : MonoBehaviour
 
     private float normalizedStep = 1;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
-        normalizedStep = Mathf.Lerp(normalizedStep, 0, Time.fixedDeltaTime * velocity);
-        MoveHorizontal();
-        MoveVertical();
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            StopCoroutine(StartSquash());
+            Debug.Log("Input A");
+            normalizedStep = 1;
+            StartCoroutine(StartSquash());
+        }
     }
 
-    private void MoveHorizontal()
+    private void Squash()
     {
-        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalizedStep), gameObject.transform.localScale.y, 1);
+        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalizedStep), vertical.Evaluate(normalizedStep), 1);
     }
 
-    private void MoveVertical()
+    IEnumerator StartSquash()
     {
-        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, vertical.Evaluate(normalizedStep), 1);
+        while(normalizedStep >= 0.01)
+        {
+            Debug.Log("Corutina");
+            normalizedStep = Mathf.Lerp(normalizedStep, 0, Time.fixedDeltaTime * velocity);
+            Squash();
+            yield return null;
+        }
     }
 }
