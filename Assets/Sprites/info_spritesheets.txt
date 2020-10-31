@@ -1,0 +1,7 @@
+Spritesheet bicho mono:
+
+- idle (1st line) 516x479
+- open mouth (2nd line) 547x479
+- chew (3rd line) 568x479
+
+separacio entre linia i linia de sprites 53px
