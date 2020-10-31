@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum INGREDIENT_TYPE
 {
-    PAN_ARRIBA,
+    PAN_ARRIBA = 0,
     QUESO,
     CARNE,
     PAN_ABAJO,

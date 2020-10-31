@@ -7,6 +7,21 @@ public class FoodManagerClass : MonoBehaviour
     public Sprite[] ingredient_sprites;
     public RecipeClass[] recipes;
 
+    private static FoodManagerClass food_instance;
+    public static FoodManagerClass Instance
+    {
+        get
+        {
+            return food_instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (food_instance == null)
+            food_instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
