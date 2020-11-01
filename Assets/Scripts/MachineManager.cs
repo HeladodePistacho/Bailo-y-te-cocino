@@ -13,10 +13,13 @@ public class MachineManager : MonoBehaviour
     INGREDIENT_TYPE ingredient_index = (INGREDIENT_TYPE)0;
 
     public SpriteRenderer current_ingredient = null;
-    public SpriteRenderer next_ingredient = null;
-    public SpriteRenderer prev_ingredient = null;
+    public GameObject ruleta = null;
 
     public GameObject flecha = null;
+
+    public float amount_up = 1.0f;
+    public float morirse_speed = 5.0f;
+    public GameObject mask = null;
 
     IEnumerator switch_coroutine;
 
@@ -30,20 +33,21 @@ public class MachineManager : MonoBehaviour
             ingredients[i] = (INGREDIENT_TYPE)i;
         }
 
-        current_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[(int)ingredient_index]);
-        next_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[(int)(ingredient_index + 1)]);
-        prev_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[(int)(INGREDIENT_TYPE.NUM_OF_INGREDIENTS - 1)]);
-
         SelectRecipe();
 
         //DEBUG
         StartCoroutine(Switch());
+        Debug.Log(mask.transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        mask.transform.Translate(0.0f, -morirse_speed * Time.deltaTime, 0.0f);
+        if(mask.transform.position.y <= -4.2f)
+        {
+            //Dead
+        }
     }
 
     IEnumerator Switch()
@@ -58,18 +62,13 @@ public class MachineManager : MonoBehaviour
     void SwitchIngredients()
     {
         //Set sprites
-        prev_ingredient.sprite = current_ingredient.sprite;
-        current_ingredient.sprite = next_ingredient.sprite;
+        ruleta.transform.Rotate(0.0f, 0.0f, -45.0f);
+        
         ++ingredient_index;
 
         if (ingredient_index == INGREDIENT_TYPE.NUM_OF_INGREDIENTS)
             ingredient_index = (INGREDIENT_TYPE)0;
 
-        if ((ingredient_index + 1) == INGREDIENT_TYPE.NUM_OF_INGREDIENTS)
-        {
-            next_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[0]);
-        }
-        else next_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[(int)ingredient_index + 1]);
     }
 
     //Select Recipe
@@ -95,7 +94,10 @@ public class MachineManager : MonoBehaviour
             {
                 flecha.transform.position = new Vector3(flecha.transform.position.x, tmp_recipe.GetCurrentPartPosY());
             }
-            
+
+            mask.transform.Translate(0.0f, amount_up, 0.0f);
+
+
         }
         else { Debug.Log("[BAAAD]"); } //ERROR CODE
     }

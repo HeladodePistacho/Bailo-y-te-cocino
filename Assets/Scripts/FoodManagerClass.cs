@@ -7,6 +7,8 @@ public class FoodManagerClass : MonoBehaviour
     public Sprite[] ingredient_sprites;
     public GameObject[] recipes;
 
+    int recipe = 0;
+
     private static FoodManagerClass food_instance;
     public static FoodManagerClass Instance
     {
@@ -41,6 +43,6 @@ public class FoodManagerClass : MonoBehaviour
 
     public GameObject GetRecipe()
     {
-        return recipes[Random.Range(0, recipes.Length)];
+        return recipes[recipe++];
     }
 }
