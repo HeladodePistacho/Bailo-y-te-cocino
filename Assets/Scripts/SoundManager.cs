@@ -9,10 +9,22 @@ public class SoundManager : MonoBehaviour
     public AudioSource music3;
     public AudioSource music4;
 
+    public AudioSource pickIngredient;
+    public AudioSource failIngredient;
+    public AudioSource recipeComplete;
+    public AudioSource eat;
+
     public AudioSource beat;
 
     private static SoundManager soundInstance;
 
+    public enum FX
+    {
+        PICK_INGREDIENT = 0,
+        FAIL_INGREDIENT,
+        RECIPE_COMPLETE,
+        EAT
+    }
     public static SoundManager Instance
     {
         get
@@ -37,6 +49,25 @@ public class SoundManager : MonoBehaviour
         music3.volume = 0;
         music4.volume = 0;
         beat.volume = 0;
+    }
+
+    public void PlayFX(FX toPlay)
+    {
+        switch (toPlay)
+        {
+            case (FX.PICK_INGREDIENT):
+                pickIngredient.Play();
+                break;
+            case (FX.FAIL_INGREDIENT):
+                failIngredient.Play();
+                break;
+            case (FX.RECIPE_COMPLETE):
+                recipeComplete.Play();
+                break;
+            case (FX.EAT):
+                eat.Play();
+                break;
+        }
     }
 
     public void SetMusicStage(int stage)
