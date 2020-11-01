@@ -30,6 +30,7 @@ public class MachineManager : MonoBehaviour
     int strike = 0;
     int fase = 1;
 
+    int num_cakes = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -98,10 +99,19 @@ public class MachineManager : MonoBehaviour
         if (tmp_recipe.CheckIngredient(ingredient_index))
         {
             if (tmp_recipe.ChildDown())
+            {
+                //Recipe Finished
                 StartCoroutine(DropRecipe());
+                SoundManager.Instance.PlayFX(SoundManager.FX.RECIPE_COMPLETE);
+                num_cakes--;
+
+                if(num_cakes == 0)
+                    SceneManager.LoadScene("MainMenu");
+            }
             else
             {
                 flecha.transform.position = new Vector3(flecha.transform.position.x, tmp_recipe.GetCurrentPartPosY());
+                SoundManager.Instance.PlayFX(SoundManager.FX.PICK_INGREDIENT);
             }
 
             mask.transform.Translate(0.0f, amount_up, 0.0f);
@@ -129,6 +139,8 @@ public class MachineManager : MonoBehaviour
             fase = 1;
             SoundManager.Instance.SetMusicStage(fase);
             ApagarLuces();
+
+            SoundManager.Instance.PlayFX(SoundManager.FX.FAIL_INGREDIENT);
         } //ERROR CODE
     }
 
