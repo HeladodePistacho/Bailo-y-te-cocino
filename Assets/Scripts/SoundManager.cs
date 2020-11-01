@@ -44,25 +44,21 @@ public class SoundManager : MonoBehaviour
         switch(stage)
         {
             case 1:
-                music1.volume = 1;
                 music2.volume = 0;
                 music3.volume = 0;
                 music4.volume = 0;
                 break;
             case 2:
-                music1.volume = 1;
                 music2.volume = 1;
                 music3.volume = 0;
                 music4.volume = 0;
                 break;
             case 3:
-                music1.volume = 1;
                 music2.volume = 0;
                 music3.volume = 1;
                 music4.volume = 0;
                 break;
             case 4:
-                music1.volume = 1;
                 music2.volume = 0;
                 music3.volume = 0;
                 music4.volume = 1;
