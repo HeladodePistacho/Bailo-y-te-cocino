@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BounceAnimation : MonoBehaviour
 {
-    public float velocity = 0f;
+    private float velocity = 1.4f;
     public AnimationCurve vertical;
     public AnimationCurve horizontal;
 
@@ -23,7 +23,7 @@ public class BounceAnimation : MonoBehaviour
        //     StopCoroutine(myCoroutine);
        //     normalizedStep = 0;
        //     StartCoroutine(myCoroutine);
-       // }
+       //}
     }
 
     private void Squash()
@@ -35,7 +35,7 @@ public class BounceAnimation : MonoBehaviour
     {
         while(normalizedStep >= 0)
         {
-            normalizedStep = Mathf.Lerp(normalizedStep, 1, Time.fixedDeltaTime * velocity);
+            normalizedStep = Mathf.Lerp(normalizedStep, 1, Time.deltaTime * velocity);
             Squash();
             yield return null;
         }
