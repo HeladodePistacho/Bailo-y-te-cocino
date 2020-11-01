@@ -24,29 +24,28 @@ public class BunnyScript : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            state = ANIM_STATE.OPEN_MOUTH;
-            anim.SetBool("Idle", false);
-            index = 0;
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     state = ANIM_STATE.OPEN_MOUTH;
+        //     anim.SetBool("Idle", false);
+        //     index = 0;
+        // }
     }
 
     IEnumerator Beat()
     {
-        while(true)
+        while (true)
         {
             anim.SetInteger("Index", index);
             ++index;
 
             ResetIndex();
-
 
             yield return new WaitForSeconds(0.4285625f);
         }
@@ -54,18 +53,18 @@ public class BunnyScript : MonoBehaviour
 
     void ResetIndex()
     {
-        switch(state)
-        {
-            case ANIM_STATE.IDLE:
-            case ANIM_STATE.ÑOM:
+
                 if (index > 3)
                     index = 0;
-                break;
 
-            case ANIM_STATE.OPEN_MOUTH:
-                if (index > 4)
-                    index = 0;
-                break;
-        }
+
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        state = ANIM_STATE.OPEN_MOUTH;
+        anim.SetBool("Idle", false);
+        index = 0;
     }
 }

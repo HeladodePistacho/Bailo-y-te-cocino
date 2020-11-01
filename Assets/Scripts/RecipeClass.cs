@@ -141,6 +141,7 @@ public class RecipeClass : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(this.gameObject);
+        if(collision.GetComponent<BunnyScript>() == null)
+            Destroy(this.gameObject);
     }
 }
