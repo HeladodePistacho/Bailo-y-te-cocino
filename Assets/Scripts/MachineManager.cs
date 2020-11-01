@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MachineManager : MonoBehaviour
 {
@@ -22,6 +23,13 @@ public class MachineManager : MonoBehaviour
     public GameObject mask = null;
 
     IEnumerator switch_coroutine;
+
+
+    public GameObject[] lights;
+    bool prev_strike = false;
+    int strike = 0;
+    int fase = 1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +55,7 @@ public class MachineManager : MonoBehaviour
         if(mask.transform.position.y <= -4.2f)
         {
             //Dead
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -98,8 +107,29 @@ public class MachineManager : MonoBehaviour
             mask.transform.Translate(0.0f, amount_up, 0.0f);
 
 
+            if (strike >= 3)
+            {
+                //Reset
+                ApagarLuces();
+                strike = 0;
+            }
+            lights[strike].SetActive(true);
+            ++strike; 
+            
+            if(strike == 3)
+            {
+                ++fase;
+                fase = Mathf.Clamp(fase, 0, 3);
+                SoundManager.Instance.SetMusicStage(fase);
+            }
         }
-        else { Debug.Log("[BAAAD]"); } //ERROR CODE
+        else {
+
+            mask.transform.Translate(0.0f, -amount_up/2, 0.0f);
+            fase = 1;
+            SoundManager.Instance.SetMusicStage(fase);
+            ApagarLuces();
+        } //ERROR CODE
     }
 
     IEnumerator DropRecipe()
@@ -113,5 +143,13 @@ public class MachineManager : MonoBehaviour
         recipe_to_drop.SetActive(true);
 
         SelectRecipe();
+    }
+
+    void ApagarLuces()
+    {
+        foreach(GameObject light in lights)
+        {
+            light.SetActive(false);
+        }
     }
 }

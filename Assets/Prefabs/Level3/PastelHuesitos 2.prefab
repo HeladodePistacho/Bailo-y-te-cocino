@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 3561140705369337668}
   - component: {fileID: 22970188845320584}
   m_Layer: 0
-  m_Name: PastelHuesitos 1
+  m_Name: PastelHuesitos 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 813191c851159da49bdcac4bf70a4563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 1
+  offset: 0.5
   speed: 5
   time_to_expand: 0.5
 --- !u!50 &3561140705369337668
