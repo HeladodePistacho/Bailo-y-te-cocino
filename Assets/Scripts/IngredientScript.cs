@@ -4,10 +4,13 @@ using UnityEngine;
 
 public enum INGREDIENT_TYPE
 {
-    PAN_ABAJO = 0,
-    CARNE,
-    QUESO,
-    PAN_ARRIBA,
+    B_ROSA = 0,
+    B_VERDE,
+    B_MORADO,
+
+    R_ARAÑA,
+    R_ROJO,
+    R_VERDE,
 
     NUM_OF_INGREDIENTS
 }
