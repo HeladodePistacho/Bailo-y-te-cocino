@@ -18,12 +18,12 @@ public class BounceAnimation : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            StopCoroutine(myCoroutine);
-            normalizedStep = 0;
-            StartCoroutine(myCoroutine);
-        }
+       // if (Input.GetKeyDown(KeyCode.A))
+       // {
+       //     StopCoroutine(myCoroutine);
+       //     normalizedStep = 0;
+       //     StartCoroutine(myCoroutine);
+       // }
     }
 
     private void Squash()
@@ -39,5 +39,12 @@ public class BounceAnimation : MonoBehaviour
             Squash();
             yield return null;
         }
+    }
+
+    public void StartSquashFunc()
+    {
+        StopCoroutine(myCoroutine);
+        normalizedStep = 0;
+        StartCoroutine(myCoroutine);
     }
 }

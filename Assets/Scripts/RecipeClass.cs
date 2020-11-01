@@ -99,9 +99,13 @@ public class RecipeClass : MonoBehaviour
 
         trans.position = new Vector3(trans.position.x, final_pos);
 
+        for(int i = 0; i <= index_child; ++i)
+            childs[i].GetComponent<BounceAnimation>().StartSquashFunc();
+
         //Check if last child
         if (index_child == childs.Length - 1)
             StartCoroutine(Blink());
+
     }
 
     public bool CheckIngredient(INGREDIENT_TYPE type)
@@ -122,12 +126,12 @@ public class RecipeClass : MonoBehaviour
         for(int i = 0; i < 5; ++i)
         {
             foreach (GameObject child in childs)
-                child.active = false;
+                child.GetComponent<SpriteRenderer>().enabled = false;
 
             yield return new WaitForSeconds(0.1f);
 
             foreach (GameObject child in childs)
-                child.active = true;
+                child.GetComponent<SpriteRenderer>().enabled = true;
 
             yield return new WaitForSeconds(0.1f);
         }
