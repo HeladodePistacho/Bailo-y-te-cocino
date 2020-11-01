@@ -16,8 +16,8 @@ public class DanceAnimation : MonoBehaviour
 
     void Update()
     {
-        float currentTime = soundManagerInstance.beatAS.time;
-        float audioLength = soundManagerInstance.beatAS.clip.length;
+        float currentTime = soundManagerInstance.beat.time;
+        float audioLength = soundManagerInstance.beat.clip.length;
 
         float normalized = currentTime / audioLength;
         float lerpValue = Mathf.Lerp(normalized, 1, normalized);

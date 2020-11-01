@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3888904714410449552}
   - component: {fileID: 3888904714410449555}
-  - component: {fileID: 3888904714410449554}
-  - component: {fileID: 3888904714410449557}
-  - component: {fileID: 3888904714410449556}
-  - component: {fileID: 3888904714410449559}
-  - component: {fileID: 3888904714410449558}
+  - component: {fileID: 4365567566173678446}
+  - component: {fileID: 7793838061658453595}
+  - component: {fileID: 9147732265536743020}
+  - component: {fileID: 9047258107667877972}
+  - component: {fileID: 7383296958695155411}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -48,12 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 744b71bd5c4767d429a4cd10d024f232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music1: {fileID: 3888904714410449557}
-  music2: {fileID: 3888904714410449556}
-  music3: {fileID: 3888904714410449559}
-  music4: {fileID: 3888904714410449558}
-  beatAS: {fileID: 3888904714410449554}
---- !u!82 &3888904714410449554
+  music1: {fileID: 7793838061658453595}
+  music2: {fileID: 9147732265536743020}
+  music3: {fileID: 9047258107667877972}
+  music4: {fileID: 7383296958695155411}
+  beat: {fileID: 4365567566173678446}
+--- !u!82 &4365567566173678446
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,7 +65,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 15f9348d92b348845b6735f1a1f1a5ea, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -149,7 +149,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &3888904714410449557
+--- !u!82 &7793838061658453595
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,7 +245,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &3888904714410449556
+--- !u!82 &9147732265536743020
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,7 +257,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 132bb77d72cb4764aa6baf1dfe067a49, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -341,7 +341,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &3888904714410449559
+--- !u!82 &9047258107667877972
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,7 +353,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 49bada0f3b55be24780cda65e07e9d67, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -437,7 +437,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &3888904714410449558
+--- !u!82 &7383296958695155411
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -449,9 +449,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dbd1d1a976a5043419d0fe6b040e9fdb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

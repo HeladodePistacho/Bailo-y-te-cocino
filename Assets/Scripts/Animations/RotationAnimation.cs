@@ -17,8 +17,9 @@ public class RotationAnimation : MonoBehaviour
 
     void Update()
     {
-        float currentTime = soundManagerInstance.beatAS.time;
-        float audioLength = soundManagerInstance.beatAS.clip.length;
+        Debug.Log(soundManagerInstance.beat.time);
+        float currentTime = soundManagerInstance.beat.time;
+        float audioLength = soundManagerInstance.beat.clip.length;
 
         float normalized = currentTime / audioLength;
         float lerpValue = Mathf.Lerp(normalized, 1, normalized);
