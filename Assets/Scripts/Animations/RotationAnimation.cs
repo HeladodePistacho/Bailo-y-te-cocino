@@ -7,24 +7,30 @@ public class RotationAnimation : MonoBehaviour
     public float velocity = 0f;
     public AnimationCurve rotation;
 
-    private float normalizedStep = 0;
+    private SoundManager soundManagerInstance;
+    //private float normalizedStep = 0;
+
+    private void Start()
+    {
+        soundManagerInstance = SoundManager.Instance;
+    }
 
     void Update()
     {
-        // Movimiento linear
-        /*if(normalizedStep >= 1)
-        {
-            normalizedStep = 0;
-        }
-        normalizedStep += Time.fixedDeltaTime * velocity;
-        gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, rotation.Evaluate(normalizedStep));*/
+        float currentTime = soundManagerInstance.beatAS.time;
+        float audioLength = soundManagerInstance.beatAS.clip.length;
+
+        float normalized = currentTime / audioLength;
+        float lerpValue = Mathf.Lerp(normalized, 1, normalized);
+
+        gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, rotation.Evaluate(lerpValue));
 
         //Movimiento con aceleraciones
-        if (normalizedStep > 0.95)
+        /*if (normalizedStep > 0.95)
         {
             normalizedStep = 0;
         }
         normalizedStep = Mathf.Lerp(normalizedStep, 1, Time.fixedDeltaTime * velocity);
-        gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, rotation.Evaluate(normalizedStep));
+        gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, rotation.Evaluate(normalizedStep));*/
     }
 }

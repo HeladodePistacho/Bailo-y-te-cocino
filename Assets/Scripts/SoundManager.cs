@@ -9,14 +9,26 @@ public class SoundManager : MonoBehaviour
     public AudioSource music3;
     public AudioSource music4;
 
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource beatAS;
+
+    private static SoundManager soundInstance;
+
+    public static SoundManager Instance
     {
-        
+        get
+        {
+            return soundInstance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
+    {
+        if (soundInstance == null)
+            soundInstance = this;
+    }
+
+    // Start is called before the first frame update
+    void Start()
     {
         
     }

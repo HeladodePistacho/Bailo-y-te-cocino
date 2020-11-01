@@ -4,65 +4,24 @@ using UnityEngine;
 
 public class DanceAnimation : MonoBehaviour
 {
-    public float velocity = 0f;
     public AnimationCurve vertical;
     public AnimationCurve horizontal;
-    public AudioSource audioSource;
 
-    private float normalizedStep = 0;
-    private IEnumerator myCoroutine;
+    private SoundManager soundManagerInstance;
 
     private void Start()
     {
-        //myCoroutine = StartSquash();
+        soundManagerInstance = SoundManager.Instance;
     }
+
     void Update()
     {
-        Debug.Log("CON LERP");
-        float currentTime = audioSource.time;
-        float audioLength = audioSource.clip.length;
+        float currentTime = soundManagerInstance.beatAS.time;
+        float audioLength = soundManagerInstance.beatAS.clip.length;
 
         float normalized = currentTime / audioLength;
-        float testLerp = Mathf.Lerp(normalized, 1, normalized);
-        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(testLerp), vertical.Evaluate(testLerp), 1);
+        float lerpValue = Mathf.Lerp(normalized, 1, normalized);
 
-
-        /*if (normalizedStep > 0.95)
-        {
-            normalizedStep = 0;
-        }
-        normalizedStep = Mathf.Lerp(normalizedStep, 1, Time.fixedDeltaTime * velocity);
-        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalizedStep), vertical.Evaluate(normalizedStep), 1);*/
-
-        /*if (Input.GetKeyDown(KeyCode.A))
-        {
-            StopCoroutine(myCoroutine);
-            normalizedStep = 0;
-            StartCoroutine(myCoroutine);
-        }*/
+        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(lerpValue), vertical.Evaluate(lerpValue), 1);
     }
-
-    /*private void Squash()
-    {
-        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalizedStep), vertical.Evaluate(normalizedStep), 1);
-    }
-
-    IEnumerator StartSquash()
-    {
-        while (normalizedStep >= 0)
-        {
-            normalizedStep = Mathf.Lerp(normalizedStep, 1, Time.fixedDeltaTime * velocity);
-            Squash();
-            yield return null;
-        }
-    }*/
-
-
-    //SIN LERP
-    /*Debug.Log("SIN LERP");
-            float currentTime = audioSource.time;
-    float audioLength = audioSource.clip.length;
-
-    float normalized = currentTime / audioLength;
-    gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalized), vertical.Evaluate(normalized), 1);*/
 }
