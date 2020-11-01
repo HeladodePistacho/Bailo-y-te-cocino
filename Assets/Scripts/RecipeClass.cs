@@ -17,7 +17,6 @@ public class RecipeClass : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("[ERROOOOOOOR] 4.33 ");
         childs = new GameObject[transform.childCount];
         for (int i = 0; i < transform.childCount; ++i)
         {

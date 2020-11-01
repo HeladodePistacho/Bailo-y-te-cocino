@@ -56,8 +56,6 @@ public class MachineManager : MonoBehaviour
 
     void SwitchIngredients()
     {
-        Debug.Log(ingredient_index);
-
         //Set sprites
         prev_ingredient.sprite = current_ingredient.sprite;
         current_ingredient.sprite = next_ingredient.sprite;
