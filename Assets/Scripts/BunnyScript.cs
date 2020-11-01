@@ -53,9 +53,8 @@ public class BunnyScript : MonoBehaviour
 
     void ResetIndex()
     {
-
-                if (index > 3)
-                    index = 0;
+        if (index > 3)
+            index = 0;
 
 
 
@@ -63,8 +62,23 @@ public class BunnyScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+ 
+
         state = ANIM_STATE.OPEN_MOUTH;
         anim.SetBool("Idle", false);
+        anim.SetBool("Eatin", true);
+        index = 0;
+
+
+        
+    }
+
+    public void StopEating()
+    {
+        Debug.Log("COMIENDO");
+        state = ANIM_STATE.ÑOM;
+        anim.SetBool("Idle", true);
+        anim.SetBool("Eatin", false);
         index = 0;
     }
 }

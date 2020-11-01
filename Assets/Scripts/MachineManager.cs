@@ -16,6 +16,7 @@ public class MachineManager : MonoBehaviour
     public SpriteRenderer next_ingredient = null;
     public SpriteRenderer prev_ingredient = null;
 
+    public GameObject flecha = null;
 
     IEnumerator switch_coroutine;
 
@@ -76,6 +77,7 @@ public class MachineManager : MonoBehaviour
     {
         recipe_to_do = Instantiate<GameObject>(FoodManagerClass.Instance.GetRecipe(), recipe_pos.transform.position, new Quaternion(0,0,0,1));
         recipe_to_do.GetComponent<RecipeClass>().ExpandChilds();
+        flecha.transform.position = new Vector3(flecha.transform.position.x, recipe_to_do.GetComponent<RecipeClass>().GetCurrentPartPosY());
 
         recipe_to_drop = Instantiate<GameObject>(recipe_to_do, recipe_pos_drop.transform.position, new Quaternion(0, 0, 0, 1));
         recipe_to_drop.SetActive(false);
@@ -89,6 +91,11 @@ public class MachineManager : MonoBehaviour
         {
             if (tmp_recipe.ChildDown())
                 StartCoroutine(DropRecipe());
+            else
+            {
+                flecha.transform.position = new Vector3(flecha.transform.position.x, tmp_recipe.GetCurrentPartPosY());
+            }
+            
         }
         else { Debug.Log("[BAAAD]"); } //ERROR CODE
     }
@@ -103,5 +110,6 @@ public class MachineManager : MonoBehaviour
 
         recipe_to_drop.SetActive(true);
 
+        SelectRecipe();
     }
 }

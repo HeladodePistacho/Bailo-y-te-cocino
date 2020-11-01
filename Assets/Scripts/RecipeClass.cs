@@ -81,6 +81,8 @@ public class RecipeClass : MonoBehaviour
 
     IEnumerator MoveChildDown(int index_child)
     {
+        Debug.Log("CHILDS GOIN DOWN: " + index_child);
+
         Transform trans = childs[index_child].transform;
 
         float init_pos_y = trans.position.y;
@@ -141,8 +143,13 @@ public class RecipeClass : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<BunnyScript>() == null)
+        if (collision.GetComponent<BunnyScript>() == null)
+        {
             Destroy(this.gameObject);
+            GameObject buny = GameObject.FindGameObjectWithTag("Mostro");
+            buny.GetComponent<BunnyScript>().StopEating();
+        }
+
     }
 
     public float GetCurrentPartPosY()
