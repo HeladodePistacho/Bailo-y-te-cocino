@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: cfb25767d392485459c55435c00e61fe
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8833800036441594179
+    second: bunny_idle_0
+  - first:
+      213: 6625427373797352129
+    second: bunny_idle_1
+  - first:
+      213: -1023177742392568174
+    second: bunny_idle_2
+  - first:
+      213: 675297207249847426
+    second: bunny_idle_3
+  - first:
+      213: -2102972746682447389
+    second: bunny_eat_0
+  - first:
+      213: -6750430709335253150
+    second: bunny_eat_1
+  - first:
+      213: 7677423168771287337
+    second: bunny_eat_2
+  - first:
+      213: -6616230189752588306
+    second: bunny_eat_3
+  - first:
+      213: 6306838065133237931
+    second: bunny_eat_4
+  - first:
+      213: -310769376084907436
+    second: "bunny_\xF1am_0"
+  - first:
+      213: 3338872265770371114
+    second: "bunny_\xF1am_1"
+  - first:
+      213: -6121236966176079862
+    second: "bunny_\xF1am_2"
+  - first:
+      213: 4710466905242436073
+    second: "bunny_\xF1am_3"
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,12 +79,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,9 +109,330 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: bunny_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1068
+        width: 516
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a583497d77d24479c14de5b447ffb8
+      internalID: 8833800036441594179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny_idle_1
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1068
+        width: 516
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b61eac65786e5d43aa5f98e91aa8ad7
+      internalID: 6625427373797352129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny_idle_2
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1068
+        width: 516
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d0d5ec3e742ff4ab39029ec441066b
+      internalID: -1023177742392568174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 1068
+        width: 516
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1303dc33732788640be2c9b7e8dead66
+      internalID: 675297207249847426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny_eat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 536
+        width: 547
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7dddb66ae57ef34cb47ab65922b5be6
+      internalID: -2102972746682447389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny_eat_1
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 536
+        width: 547
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e7e2538785cb44d9a5e0ff75fe0e78
+      internalID: -6750430709335253150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny_eat_2
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 536
+        width: 547
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af566c644a7b30a44b4e2ab015367fe2
+      internalID: 7677423168771287337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny_eat_3
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 536
+        width: 547
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f552ae36a0ebc74b812b6c6cf0a6589
+      internalID: -6616230189752588306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny_eat_4
+      rect:
+        serializedVersion: 2
+        x: 2188
+        y: 536
+        width: 547
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c123a2bbcd70b429dfded7604f0273
+      internalID: 6306838065133237931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "bunny_\xF1am_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 568
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab485c6d6bf24274d9d758c54ec9bfd3
+      internalID: -310769376084907436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "bunny_\xF1am_1"
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 5
+        width: 568
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c5486cd278c014f9b9960e07f22a87
+      internalID: 3338872265770371114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "bunny_\xF1am_2"
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 5
+        width: 568
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4b564a16b490546b8ed6e81164527c
+      internalID: -6121236966176079862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "bunny_\xF1am_3"
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 5
+        width: 568
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751e5cf448fa7da48a3963bd307d4b77
+      internalID: 4710466905242436073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

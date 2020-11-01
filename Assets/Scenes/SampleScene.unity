@@ -436,7 +436,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d9fa295a46eae2a4595b6915e38c5c97, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 15f9348d92b348845b6735f1a1f1a5ea, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 1166312876}
   - component: {fileID: 1166312875}
   - component: {fileID: 1166312874}
+  - component: {fileID: 1166312877}
   m_Layer: 0
   m_Name: Monstro
   m_TagString: Untagged
@@ -637,6 +638,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1166312877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166312873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b60d2276aeacd049888c241c360d2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1230183111
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,13 +898,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredient_sprites:
-  - {fileID: -7799647450364977891, guid: 9cc33e7660d20494eafc40a3a48b75ce, type: 3}
-  - {fileID: 1110831929249508462, guid: 9cc33e7660d20494eafc40a3a48b75ce, type: 3}
-  - {fileID: 1632323811644440250, guid: 9cc33e7660d20494eafc40a3a48b75ce, type: 3}
-  - {fileID: -2132870332702495604, guid: 9cc33e7660d20494eafc40a3a48b75ce, type: 3}
+  - {fileID: 21300000, guid: 68e71eebb500da14fafcbbbd3a52c279, type: 3}
+  - {fileID: 21300000, guid: 69173e96de146e440b249978efe55956, type: 3}
+  - {fileID: 21300000, guid: 742401e5f4474d543aa54a84fc91d570, type: 3}
+  - {fileID: 21300000, guid: 3a8ced7725058424e921d663f85a44bb, type: 3}
+  - {fileID: 21300000, guid: 145c08ed67c59804e9298939f8a8176f, type: 3}
+  - {fileID: 21300000, guid: ba3265438e1bbee47950caa5bbe4b987, type: 3}
   recipes:
   - {fileID: 8204024943112250645, guid: ca628b4df113feb458ae429c5e9154c9, type: 3}
-  - {fileID: 8204024943112250645, guid: ca628b4df113feb458ae429c5e9154c9, type: 3}
+  - {fileID: 6049351802324228774, guid: be4127850d371e946bf0d78e33f09903, type: 3}
 --- !u!4 &1803551701
 Transform:
   m_ObjectHideFlags: 0
