@@ -80,19 +80,19 @@ public class SoundManager : MonoBehaviour
                 music4.volume = 0;
                 break;
             case 2:
-                music2.volume = 1;
+                music2.volume = 0.5f;
                 music3.volume = 0;
                 music4.volume = 0;
                 break;
             case 3:
                 music2.volume = 0;
-                music3.volume = 1;
+                music3.volume = 0.5f;
                 music4.volume = 0;
                 break;
             case 4:
                 music2.volume = 0;
                 music3.volume = 0;
-                music4.volume = 1;
+                music4.volume = 0.5f;
                 break;
         }
     }
