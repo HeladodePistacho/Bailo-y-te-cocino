@@ -77,7 +77,7 @@ public class MachineManager : MonoBehaviour
         recipe_to_do = Instantiate<GameObject>(FoodManagerClass.Instance.GetRecipe(), recipe_pos.transform.position, new Quaternion(0,0,0,1));
         recipe_to_do.GetComponent<RecipeClass>().ExpandChilds();
 
-        recipe_to_drop = Instantiate<GameObject>(FoodManagerClass.Instance.GetRecipe(), recipe_pos_drop.transform.position, new Quaternion(0, 0, 0, 1));
+        recipe_to_drop = Instantiate<GameObject>(recipe_to_do, recipe_pos_drop.transform.position, new Quaternion(0, 0, 0, 1));
         recipe_to_drop.SetActive(false);
         recipe_to_drop.GetComponent<Rigidbody2D>().simulated = true;
     }
