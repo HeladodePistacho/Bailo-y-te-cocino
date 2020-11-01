@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0)
+        if (Input.anyKeyDown || Input.touchCount > 0)
         {
             SceneManager.LoadScene("SampleScene");
         }
