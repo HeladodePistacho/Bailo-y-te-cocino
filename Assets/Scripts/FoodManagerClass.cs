@@ -5,7 +5,7 @@ using UnityEngine;
 public class FoodManagerClass : MonoBehaviour
 {
     public Sprite[] ingredient_sprites;
-    public RecipeClass[] recipes;
+    public GameObject[] recipes;
 
     private static FoodManagerClass food_instance;
     public static FoodManagerClass Instance
@@ -39,7 +39,7 @@ public class FoodManagerClass : MonoBehaviour
         return ingredient_sprites[(int)type];
     }
 
-    public RecipeClass GetRecipe()
+    public GameObject GetRecipe()
     {
         return recipes[Random.Range(0, recipes.Length)];
     }

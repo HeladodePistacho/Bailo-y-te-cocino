@@ -2,16 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum INGREDIENT_TYPE
-{
-    PAN_ARRIBA = 0,
-    QUESO,
-    CARNE,
-    PAN_ABAJO,
-
-    NUM_OF_INGREDIENTS
-}
-
 public class RecipeClass : MonoBehaviour
 {
     public float offset = 2.0f;
@@ -19,14 +9,15 @@ public class RecipeClass : MonoBehaviour
     public float time_to_expand = 2.0f;
 
     GameObject[] childs;
+    int current_ingredient = 0;
 
     //DEBUG
     bool tmp = false;
-    int child_index = 1;
+    int child_index = 0;
 
-    // Start is called before the first frame update
     private void Awake()
     {
+        Debug.Log("[ERROOOOOOOR] 4.33 ");
         childs = new GameObject[transform.childCount];
         for (int i = 0; i < transform.childCount; ++i)
         {
@@ -34,27 +25,35 @@ public class RecipeClass : MonoBehaviour
         }
     }
 
+    public void InitRecipe()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (!tmp)
-            ExpandChilds();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine("MoveChildDown", child_index);
-            ++child_index;
-        }
+       //if (Input.GetKeyDown(KeyCode.Space))
+       //{
+       //    StartCoroutine("MoveChildDown", child_index);
+       //    ++child_index;
+       //}
     }
 
-    void ExpandChilds()
+    public void ExpandChilds()
     {
         for (int i = 1; i < childs.Length; ++i)
         {
-            StartCoroutine("MoveChildsUp", i);
+            StartCoroutine(MoveChildsUp(i));
         }
 
         tmp = true;
+    }
+
+    public void ChildDown()
+    {
+        StartCoroutine(MoveChildDown(child_index));
+        ++child_index;
     }
 
     IEnumerator MoveChildsUp(int index_child)
@@ -97,5 +96,18 @@ public class RecipeClass : MonoBehaviour
         }
 
         trans.position = new Vector3(trans.position.x, final_pos);
+    }
+
+    public bool CheckIngredient(INGREDIENT_TYPE type)
+    {
+        if (current_ingredient >= childs.Length)
+            return false;
+
+        if (childs[current_ingredient].GetComponent<IngredientScript>().type == type)
+        {
+            ++current_ingredient;
+            return true;
+        }
+        else return false;
     }
 }

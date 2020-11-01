@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MachineManager : MonoBehaviour
 {
-    public RecipeClass recipe_to_do = null;
+    GameObject recipe_to_do = null;
+    public GameObject recipe_pos = null;
 
     INGREDIENT_TYPE[] ingredients;
     INGREDIENT_TYPE ingredient_index = (INGREDIENT_TYPE)0;
@@ -30,14 +31,16 @@ public class MachineManager : MonoBehaviour
         next_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[(int)(ingredient_index + 1)]);
         prev_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[(int)(INGREDIENT_TYPE.NUM_OF_INGREDIENTS - 1)]);
 
+        SelectRecipe();
+
+        //DEBUG
         StartCoroutine(Switch());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-            SwitchIngredients();
+        
     }
 
     IEnumerator Switch()
@@ -66,5 +69,23 @@ public class MachineManager : MonoBehaviour
             next_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[0]);
         }
         else next_ingredient.sprite = FoodManagerClass.Instance.GetSpriteByIngredient(ingredients[(int)ingredient_index + 1]);
+    }
+
+    //Select Recipe
+    void SelectRecipe()
+    {
+        recipe_to_do = Instantiate<GameObject>(FoodManagerClass.Instance.GetRecipe(), recipe_pos.transform.position, new Quaternion(0,0,0,1));
+        recipe_to_do.GetComponent<RecipeClass>().ExpandChilds();
+    }
+
+    public void CheckIngredient()
+    {
+        RecipeClass tmp_recipe = recipe_to_do.GetComponent<RecipeClass>();
+        if (tmp_recipe.CheckIngredient(ingredient_index))
+        {
+            Debug.Log("[NICE]");
+            tmp_recipe.ChildDown();
+        }
+        else { Debug.Log("[BAAAD]"); } //ERROR CODE
     }
 }
