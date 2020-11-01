@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RecipeClass : MonoBehaviour
 {
-    public float offset = 2.0f;
+    public float offset = 0.7f;
     public float speed = 5.0f;
     public float time_to_expand = 2.0f;
 
@@ -143,5 +143,10 @@ public class RecipeClass : MonoBehaviour
     {
         if(collision.GetComponent<BunnyScript>() == null)
             Destroy(this.gameObject);
+    }
+
+    public float GetCurrentPartPosY()
+    {
+        return childs[child_index].transform.position.y;
     }
 }

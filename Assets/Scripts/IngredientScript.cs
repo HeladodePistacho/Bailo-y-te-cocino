@@ -12,6 +12,9 @@ public enum INGREDIENT_TYPE
     R_ROJO,
     R_VERDE,
 
+    T_OJOS,
+    T_INTESTINOS,
+
     NUM_OF_INGREDIENTS
 }
 
