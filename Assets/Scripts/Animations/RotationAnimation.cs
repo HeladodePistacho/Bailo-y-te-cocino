@@ -11,6 +11,7 @@ public class RotationAnimation : MonoBehaviour
 
     void Update()
     {
+        // Movimiento linear
         /*if(normalizedStep >= 1)
         {
             normalizedStep = 0;
@@ -18,7 +19,7 @@ public class RotationAnimation : MonoBehaviour
         normalizedStep += Time.fixedDeltaTime * velocity;
         gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, rotation.Evaluate(normalizedStep));*/
 
-
+        //Movimiento con aceleraciones
         if (normalizedStep > 0.95)
         {
             normalizedStep = 0;
