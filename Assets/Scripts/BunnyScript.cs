@@ -30,22 +30,25 @@ public class BunnyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            state = ANIM_STATE.OPEN_MOUTH;
+            anim.SetBool("Idle", false);
+            index = 0;
+        }
     }
 
     IEnumerator Beat()
     {
         while(true)
         {
-            yield return new WaitForSeconds(0.4285625f);
-
             anim.SetInteger("Index", index);
             ++index;
 
             ResetIndex();
 
 
-
+            yield return new WaitForSeconds(0.4285625f);
         }
     }
 
@@ -60,7 +63,7 @@ public class BunnyScript : MonoBehaviour
                 break;
 
             case ANIM_STATE.OPEN_MOUTH:
-                if (index > 3)
+                if (index > 4)
                     index = 0;
                 break;
         }

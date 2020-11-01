@@ -50,7 +50,7 @@ public class MachineManager : MonoBehaviour
         while (true)
         {
             SwitchIngredients();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4285625f);
         }
     }
 
