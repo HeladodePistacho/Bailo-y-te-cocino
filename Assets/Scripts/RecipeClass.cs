@@ -50,10 +50,14 @@ public class RecipeClass : MonoBehaviour
         tmp = true;
     }
 
-    public void ChildDown()
+    public bool ChildDown()
     {
         StartCoroutine(MoveChildDown(child_index));
         ++child_index;
+
+        if (child_index == childs.Length)
+            return true;
+        else return false;
     }
 
     IEnumerator MoveChildsUp(int index_child)
@@ -132,5 +136,8 @@ public class RecipeClass : MonoBehaviour
         
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(this.gameObject);
+    }
 }

@@ -5,7 +5,9 @@ using UnityEngine;
 public class MachineManager : MonoBehaviour
 {
     GameObject recipe_to_do = null;
+    GameObject recipe_to_drop = null;
     public GameObject recipe_pos = null;
+    public GameObject recipe_pos_drop = null;
 
     INGREDIENT_TYPE[] ingredients;
     INGREDIENT_TYPE ingredient_index = (INGREDIENT_TYPE)0;
@@ -76,6 +78,10 @@ public class MachineManager : MonoBehaviour
     {
         recipe_to_do = Instantiate<GameObject>(FoodManagerClass.Instance.GetRecipe(), recipe_pos.transform.position, new Quaternion(0,0,0,1));
         recipe_to_do.GetComponent<RecipeClass>().ExpandChilds();
+
+        recipe_to_drop = Instantiate<GameObject>(FoodManagerClass.Instance.GetRecipe(), recipe_pos_drop.transform.position, new Quaternion(0, 0, 0, 1));
+        recipe_to_drop.SetActive(false);
+        recipe_to_drop.GetComponent<Rigidbody2D>().simulated = true;
     }
 
     public void CheckIngredient()
@@ -83,8 +89,21 @@ public class MachineManager : MonoBehaviour
         RecipeClass tmp_recipe = recipe_to_do.GetComponent<RecipeClass>();
         if (tmp_recipe.CheckIngredient(ingredient_index))
         {
-            tmp_recipe.ChildDown();
+            if (tmp_recipe.ChildDown())
+                StartCoroutine(DropRecipe());
         }
         else { Debug.Log("[BAAAD]"); } //ERROR CODE
+    }
+
+    IEnumerator DropRecipe()
+    {
+        //Wait until recipe is deleted
+        while(recipe_to_do != null)
+        {
+            yield return null;
+        }
+
+        recipe_to_drop.SetActive(true);
+
     }
 }
