@@ -7,6 +7,7 @@ public class DanceAnimation : MonoBehaviour
     public float velocity = 0f;
     public AnimationCurve vertical;
     public AnimationCurve horizontal;
+    public AudioSource audioSource;
 
     private float normalizedStep = 0;
     private IEnumerator myCoroutine;
@@ -18,12 +19,18 @@ public class DanceAnimation : MonoBehaviour
     }
     void Update()
     {
-        if(normalizedStep > 0.95)
+        float currentTime = audioSource.time;
+        float audioLength = audioSource.clip.length;
+
+        float normalized = currentTime / audioLength;
+        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalized), vertical.Evaluate(normalized), 1);
+
+        /*if (normalizedStep > 0.95)
         {
             normalizedStep = 0;
         }
         normalizedStep = Mathf.Lerp(normalizedStep, 1, Time.fixedDeltaTime * velocity);
-        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalizedStep), vertical.Evaluate(normalizedStep), 1);
+        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalizedStep), vertical.Evaluate(normalizedStep), 1);*/
 
         /*if (Input.GetKeyDown(KeyCode.A))
         {
