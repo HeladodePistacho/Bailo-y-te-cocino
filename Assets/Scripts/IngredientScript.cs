@@ -22,6 +22,11 @@ public class IngredientScript : MonoBehaviour
         
     }
 
+    private void Awake()
+    {
+        GetComponent<SpriteRenderer>().sprite = FoodManagerClass.Instance.GetSpriteByIngredient(type);
+    }
+
     // Update is called once per frame
     void Update()
     {

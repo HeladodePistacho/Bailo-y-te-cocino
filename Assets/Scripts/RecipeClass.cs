@@ -84,8 +84,6 @@ public class RecipeClass : MonoBehaviour
         float final_pos = (init_pos_y - (offset * index_child));
         float current_time = 0.0f;
 
-        Debug.Log("init: " + init_pos_y + " final: " + final_pos);
-
         while (trans.position.y > final_pos)
         {
             float new_pos = Mathf.SmoothStep(init_pos_y, final_pos, current_time / time_to_expand);
@@ -96,6 +94,10 @@ public class RecipeClass : MonoBehaviour
         }
 
         trans.position = new Vector3(trans.position.x, final_pos);
+
+        //Check if last child
+        if (index_child == childs.Length - 1)
+            StartCoroutine(Blink());
     }
 
     public bool CheckIngredient(INGREDIENT_TYPE type)
@@ -110,4 +112,25 @@ public class RecipeClass : MonoBehaviour
         }
         else return false;
     }
+
+    IEnumerator Blink()
+    {
+        for(int i = 0; i < 5; ++i)
+        {
+            foreach (GameObject child in childs)
+                child.active = false;
+
+            yield return new WaitForSeconds(0.1f);
+
+            foreach (GameObject child in childs)
+                child.active = true;
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        Destroy(this.gameObject);
+        
+    }
+
+    
 }

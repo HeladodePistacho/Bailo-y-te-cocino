@@ -83,7 +83,6 @@ public class MachineManager : MonoBehaviour
         RecipeClass tmp_recipe = recipe_to_do.GetComponent<RecipeClass>();
         if (tmp_recipe.CheckIngredient(ingredient_index))
         {
-            Debug.Log("[NICE]");
             tmp_recipe.ChildDown();
         }
         else { Debug.Log("[BAAAD]"); } //ERROR CODE
