@@ -14,16 +14,18 @@ public class DanceAnimation : MonoBehaviour
 
     private void Start()
     {
-        myCoroutine = StartSquash();
-
+        //myCoroutine = StartSquash();
     }
     void Update()
     {
+        Debug.Log("CON LERP");
         float currentTime = audioSource.time;
         float audioLength = audioSource.clip.length;
 
         float normalized = currentTime / audioLength;
-        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalized), vertical.Evaluate(normalized), 1);
+        float testLerp = Mathf.Lerp(normalized, 1, normalized);
+        gameObject.transform.localScale = new Vector3(horizontal.Evaluate(testLerp), vertical.Evaluate(testLerp), 1);
+
 
         /*if (normalizedStep > 0.95)
         {
@@ -40,7 +42,7 @@ public class DanceAnimation : MonoBehaviour
         }*/
     }
 
-    private void Squash()
+    /*private void Squash()
     {
         gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalizedStep), vertical.Evaluate(normalizedStep), 1);
     }
@@ -53,5 +55,14 @@ public class DanceAnimation : MonoBehaviour
             Squash();
             yield return null;
         }
-    }
+    }*/
+
+
+    //SIN LERP
+    /*Debug.Log("SIN LERP");
+            float currentTime = audioSource.time;
+    float audioLength = audioSource.clip.length;
+
+    float normalized = currentTime / audioLength;
+    gameObject.transform.localScale = new Vector3(horizontal.Evaluate(normalized), vertical.Evaluate(normalized), 1);*/
 }
