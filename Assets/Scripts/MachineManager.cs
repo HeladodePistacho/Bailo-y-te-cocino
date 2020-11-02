@@ -21,6 +21,7 @@ public class MachineManager : MonoBehaviour
     public float amount_up = 1.0f;
     public float morirse_speed = 5.0f;
     public GameObject mask = null;
+    public GameObject mask_pasteles = null;
 
     IEnumerator switch_coroutine;
 
@@ -31,6 +32,12 @@ public class MachineManager : MonoBehaviour
     int fase = 1;
 
     int num_cakes = 20;
+
+
+    //Ruleta
+
+    public GameObject ruleta_fake;
+    private IEnumerator cor;
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +52,9 @@ public class MachineManager : MonoBehaviour
         SelectRecipe();
 
         //DEBUG
+        cor = LaRuletaGira();
         StartCoroutine(Switch());
-        Debug.Log(mask.transform.position);
+        
     }
 
     // Update is called once per frame
@@ -58,21 +66,55 @@ public class MachineManager : MonoBehaviour
             //Dead
             SceneManager.LoadScene("MainMenu");
         }
+
+        
+            
+        
     }
 
     IEnumerator Switch()
     {
         while (true)
         {
-            SwitchIngredients();
-            yield return new WaitForSeconds(0.4285625f);
+            Quaternion init_q = ruleta.transform.rotation;
+            Quaternion final_q = ruleta_fake.transform.rotation;
+
+            Debug.Log(final_q);
+
+            float current_time = 0.0f;
+
+            while (Quaternion.Angle(ruleta.transform.rotation, final_q) > 5.0f)
+            {
+                float anle = Quaternion.Angle(ruleta.transform.rotation, final_q);
+                // Debug.Log(anle);
+
+                Quaternion new_rot = Quaternion.Slerp(init_q, final_q, current_time / 0.2f);
+                current_time += Time.deltaTime;
+
+                ruleta.transform.rotation = new_rot;
+
+                yield return null;
+            }
+
+            ruleta.transform.rotation = final_q;
+            Debug.Log("Giro");
+
+            ++ingredient_index;
+
+            if (ingredient_index == INGREDIENT_TYPE.NUM_OF_INGREDIENTS)
+                ingredient_index = (INGREDIENT_TYPE)0;
+
+            yield return new WaitForSeconds(SoundManager.Instance.beat.clip.length - 0.2f);
         }
     }
 
     void SwitchIngredients()
     {
         //Set sprites
-        ruleta.transform.Rotate(0.0f, 0.0f, -45.0f);
+        // ruleta.transform.Rotate(0.0f, 0.0f, -45.0f);
+
+        //StopCoroutine(cor);
+        StartCoroutine(cor);
         
         ++ingredient_index;
 
@@ -104,8 +146,9 @@ public class MachineManager : MonoBehaviour
                 StartCoroutine(DropRecipe());
                 SoundManager.Instance.PlayFX(SoundManager.FX.RECIPE_COMPLETE);
                 num_cakes--;
+                mask_pasteles.transform.Translate(-0.205f, 0.0f, 0.0f);
 
-                if(num_cakes == 0)
+                if (num_cakes == 0)
                     SceneManager.LoadScene("MainMenu");
             }
             else
@@ -114,7 +157,10 @@ public class MachineManager : MonoBehaviour
                 SoundManager.Instance.PlayFX(SoundManager.FX.PICK_INGREDIENT);
             }
 
-            mask.transform.Translate(0.0f, amount_up, 0.0f);
+            if((mask.transform.localPosition.y + amount_up) < 2.8f)
+                mask.transform.Translate(0.0f, amount_up, 0.0f);
+
+            
 
 
             if (strike >= 3)
@@ -163,5 +209,31 @@ public class MachineManager : MonoBehaviour
         {
             light.SetActive(false);
         }
+    }
+
+    IEnumerator LaRuletaGira()
+    {
+        Quaternion init_q = ruleta.transform.rotation;
+        Quaternion final_q = ruleta_fake.transform.rotation;
+
+        Debug.Log(final_q);
+
+        float current_time = 0.0f;
+
+        while (Quaternion.Angle(ruleta.transform.rotation, final_q) > 5.0f)
+        {
+            float anle = Quaternion.Angle(ruleta.transform.rotation, final_q);
+           // Debug.Log(anle);
+
+            Quaternion new_rot = Quaternion.Slerp(init_q, final_q, current_time / 0.2f);
+            current_time += Time.deltaTime;
+
+            ruleta.transform.rotation = new_rot;
+        
+            yield return null;
+        }
+
+        ruleta.transform.rotation = final_q;
+        Debug.Log("Giro");
     }
 }

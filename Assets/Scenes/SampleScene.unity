@@ -933,7 +933,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2933
   m_Sprite: {fileID: 21300000, guid: 96ad0b865f38cce419d79b73d8766809, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -953,7 +953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711835459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6702623, y: 1.8003292, z: 0}
+  m_LocalPosition: {x: 5.22, y: 1.8003292, z: 0}
   m_LocalScale: {x: 1.375, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1689,7 +1689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249749072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.05, y: 9.99, z: 0}
+  m_LocalPosition: {x: 8.31, y: 9.99, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children: []
   m_Father: {fileID: 1945622229}
@@ -3037,7 +3037,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 505
+  m_SortingOrder: 3477
   m_Sprite: {fileID: 21300000, guid: abb0ae91105591d4a951e31d277708ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3205,12 +3205,14 @@ MonoBehaviour:
   ruleta: {fileID: 1690082859}
   flecha: {fileID: 1875868386}
   amount_up: 1
-  morirse_speed: 0.3
+  morirse_speed: 0.15
   mask: {fileID: 1535954345}
+  mask_pasteles: {fileID: 2102118217}
   lights:
   - {fileID: 225792778}
   - {fileID: 1695678910}
   - {fileID: 651823333}
+  ruleta_fake: {fileID: 1480408225}
 --- !u!1 &1961499095
 GameObject:
   m_ObjectHideFlags: 0

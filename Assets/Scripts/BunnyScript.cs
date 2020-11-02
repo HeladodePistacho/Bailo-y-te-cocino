@@ -80,5 +80,6 @@ public class BunnyScript : MonoBehaviour
         anim.SetBool("Idle", true);
         anim.SetBool("Eatin", false);
         index = 0;
+        SoundManager.Instance.PlayFX(SoundManager.FX.EAT);
     }
 }
