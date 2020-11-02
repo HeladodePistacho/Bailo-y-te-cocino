@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown || Input.touchCount > 0)
+        if(Input.anyKeyDown || Input.touchCount == 1)
         {
             manager.CheckIngredient();
         }
